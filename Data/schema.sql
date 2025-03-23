@@ -1,17 +1,19 @@
-DROP DATABASE IF EXISTS Employee_db;
+DROP DATABASE IF EXISTS employee_db;
 
-CREATE DATABASE Employee_db;
+CREATE DATABASE employee_db;
 -- new database created
-USE Employee_db;
+
+-- switxh to new database
+\c employee_db;
 
 -- department table: id, name
-CREATE TABLE Department (
+CREATE TABLE department (
     id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL
 );
 
 -- role table: id, title, salary, department_id
-CREATE TABLE Role (
+CREATE TABLE role (
     id SERIAL PRIMARY KEY,
     title VARCHAR(30) UNIQUE NOT NULL,
     salary DECIMAL(10, 2) NOT NULL,
@@ -22,7 +24,7 @@ CREATE TABLE Role (
 
 
 -- employee table: id, first_name, last_name, role_id, manager_id
-CREATE TABLE Employee (
+CREATE TABLE employee (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
